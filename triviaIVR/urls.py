@@ -15,10 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.http import HttpResponse 
 
 from trivia.urls import urlpatterns as trivia_urlpatterns
+
+def index(request):
+    return HttpResponse('Call (256)-686-9347 to play a game of trivia!')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('trivia/', include(trivia_urlpatterns)),
+    path("", index),
 ]
